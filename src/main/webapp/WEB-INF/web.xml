@@ -6,7 +6,7 @@
 	<!-- Spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/spring-xxx.xml</param-value>
+		<param-value>classpath:spring/spring.xml</param-value>
 	</context-param>
 	<!-- spring 监听器 -->
 	<listener>
