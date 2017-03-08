@@ -1,5 +1,7 @@
 package group.yf.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +23,7 @@ public class TestAction {
 	
 	
 	@RequestMapping(value="abc")
-	public ModelAndView abc(){
+	public ModelAndView abc(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView("test");
 		int i=testService.add();
 		log.info("action>>>>>>>>"+i);

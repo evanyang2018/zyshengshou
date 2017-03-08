@@ -3,20 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc
        			http://www.springframework.org/schema/mvc/spring-mvc.xsd
                 http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
                 http://www.springframework.org/schema/context
-                http://www.springframework.org/schema/context/spring-context.xsd">
+                http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/util 
+                http://www.springframework.org/schema/util/spring-util-4.3.xsd">
                 
 	<!-- spring 注解扫描 -->
 	<context:component-scan base-package="group.yf"/>      
 	<!-- 开启注解驱动 -->
 	<mvc:annotation-driven />
-
-	<!-- 完成请求和注解POJO的映射 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 	<!--视图解释器  Freemarker -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
