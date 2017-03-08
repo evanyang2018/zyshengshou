@@ -17,8 +17,6 @@
 	<context:component-scan base-package="group.yf"/>      
 	<!-- 开启注解驱动 -->
 	<mvc:annotation-driven />
-	<!--  -->
-	 <util:properties id="wechatConfig" location="classpath:wechatConfig.properties"/>  
 
 	<!--视图解释器  Freemarker -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

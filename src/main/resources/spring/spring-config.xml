@@ -7,6 +7,6 @@
                 http://www.springframework.org/schema/util 
                 http://www.springframework.org/schema/util/spring-util-4.3.xsd">
       
-      <util:properties id="wechatConfig" location="classpath:wechatConfig.properties"/>  
-                
+    <!-- 微信配置文件 -->
+	<util:properties id="wechatConfig" location="classpath:wechatConfig.properties"/>  
 </beans>
