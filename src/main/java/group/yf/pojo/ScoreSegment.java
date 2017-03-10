@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Yang Fei
  * 
  */
-public class GradeSegment implements Serializable{
+public class ScoreSegment implements Serializable{
 	private static final long serialVersionUID = -8057908050161760546L;
 	private int id;
 	private int provinceId;
