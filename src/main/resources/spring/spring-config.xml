@@ -9,4 +9,5 @@
       
     <!-- 微信配置文件 -->
 	<util:properties id="wechatConfig" location="classpath:wechatConfig.properties"/>  
+	
 </beans>

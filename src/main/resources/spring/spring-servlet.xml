@@ -14,10 +14,17 @@
                 http://www.springframework.org/schema/util/spring-util-4.3.xsd">
                 
 	<!-- spring 注解扫描 -->
-	<context:component-scan base-package="group.yf"/>      
-	<!-- 开启注解驱动 -->
+	<context:component-scan base-package="group.yf"/>
+	<!-- 开启SpringMVC注解驱动 如：@Controller @NumberFormatannotation @DateTimeFormat @Valid-->
 	<mvc:annotation-driven />
-
+	<!--对静态资源文件的访问 -->
+   	<mvc:default-servlet-handler />
+   
+	<!-- start 使用注解 <context:component-scan base-package="group.yf"/> 时候 可以移除-->
+	<!-- 开启Spring注解 如：@Required @Autowired @PostConstruct -->
+	<!-- <context:annotation-config />  -->
+	<!-- end  -->
+	
 	<!--视图解释器  Freemarker -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		 <property name="cache" value="true" />  
@@ -44,6 +51,12 @@
 			</props>
 		</property>
 	</bean>
-
+	
+	<!-- 文件上传配置 -->
+	<bean id="multipartresolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="209715200"/>	<!-- 200*1024*1024 -->
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="resolveLazily" value="true"/> <!-- 懒加载  使用时再加载 -->
+	</bean>
 
 </beans>
