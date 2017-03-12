@@ -6,7 +6,7 @@ package group.yf.service;
  */
 public interface ScoreSegmentService {
 
-	public int selectRanking(String province,int score);
+	public int selectRanking(String province,int score,int science);
 	
 	
 }

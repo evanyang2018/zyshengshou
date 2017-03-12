@@ -22,8 +22,8 @@ public class ScoreSegmentServiceImpl implements ScoreSegmentService{
 	private ScoreSegmentMapper scoreSegmentMapper;
 	
 	@Override
-	public int selectRanking(String province, int score) {
-		int i=scoreSegmentMapper.selectRanking(province, score);
+	public int selectRanking(String province, int score,int science) {
+		int i=scoreSegmentMapper.selectRanking(province, score, science);
 		return i;
 	}
 

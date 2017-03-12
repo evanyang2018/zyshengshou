@@ -4,7 +4,7 @@
 	
 	<select id="selectRanking" resultType="Integer">
 		SELECT ranking FROM  province p, scoresegment s
-		WHERE p.name=#{province} AND p.id=s.provinceId AND s.score=#{score}
+		WHERE p.name=#{province} AND p.id=s.provinceId AND s.score=#{score} AND science=#{science}
 	</select>
 	
 	

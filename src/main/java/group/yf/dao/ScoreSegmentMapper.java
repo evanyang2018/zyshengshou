@@ -10,6 +10,6 @@ import group.yf.pojo.ScoreSegment;
  */
 public interface ScoreSegmentMapper extends BaseDao<ScoreSegment>{
 	
-	public int selectRanking(@Param("province")String province,@Param("score")int score);
+	public int selectRanking(@Param("province")String province,@Param("score")int score,@Param("science")int science);
 	
 }
