@@ -14,10 +14,16 @@ import group.yf.pojo.College;
  */
 public interface AdmissionScoreMapper extends BaseDao<AdmissionScore> {
 	
-	List<College> selectEnsureCollege(@Param("localProvince")String localProvince,@Param("targetProvince")String targetProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	public List<College> selectEnsureCollege(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
 	
-	List<College> selectStablityCollege(@Param("localProvince")String localProvince,@Param("targetProvince")String targetProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	public List<College> selectStablityCollege(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
 	
-	List<College> selectSprintCollege(@Param("localProvince")String localProvince,@Param("targetProvince")String targetProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	public List<College> selectSprintCollege(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	
+	public int selectCountEnsureCollegeNum(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	
+	public int selectCountStablityCollegeNum(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
+	
+	public int selectCountSprintCollegeNum(@Param("localProvince")String localProvince,@Param("ranking")int ranking,@Param("limitNum")int limitNum,@Param("science")int science);
 	
 }

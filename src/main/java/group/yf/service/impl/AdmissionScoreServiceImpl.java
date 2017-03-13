@@ -21,8 +21,8 @@ public class AdmissionScoreServiceImpl implements AdmissionScoreService{
 	 * 获取 保底学校List
 	 */
 	@Override
-	public List<College> selectEnsureCollege(String localProvince, String targetProvince, int ranking, int limitNum,int science) {
-		List<College> ensureCollegeList=admissionScoreMapper.selectEnsureCollege(localProvince, targetProvince, ranking, limitNum,science);
+	public List<College> selectEnsureCollege(String localProvince, int ranking, int limitNum,int science) {
+		List<College> ensureCollegeList=admissionScoreMapper.selectEnsureCollege(localProvince, ranking, limitNum,science);
 		return ensureCollegeList;
 	}
 
@@ -30,8 +30,8 @@ public class AdmissionScoreServiceImpl implements AdmissionScoreService{
 	 * 获取 稳定学校List
 	 */
 	@Override
-	public List<College> selectStablityCollege(String localProvince, String targetProvince, int ranking, int limitNum,int science) {
-		List<College> stablityCollegeList=admissionScoreMapper.selectStablityCollege(localProvince, targetProvince, ranking, limitNum,science);
+	public List<College> selectStablityCollege(String localProvince, int ranking, int limitNum,int science) {
+		List<College> stablityCollegeList=admissionScoreMapper.selectStablityCollege(localProvince, ranking, limitNum,science);
 		return stablityCollegeList;
 	}
 
@@ -39,9 +39,30 @@ public class AdmissionScoreServiceImpl implements AdmissionScoreService{
 	 * 获取 冲刺学校List
 	 */
 	@Override
-	public List<College> selectSprintCollege(String localProvince, String targetProvince, int ranking, int limitNum,int science) {
-		List<College> sprintCollegeList=admissionScoreMapper.selectSprintCollege(localProvince, targetProvince, ranking, limitNum,science);
+	public List<College> selectSprintCollege(String localProvince, int ranking, int limitNum,int science) {
+		List<College> sprintCollegeList=admissionScoreMapper.selectSprintCollege(localProvince, ranking, limitNum,science);
 		return sprintCollegeList;
+	}
+
+	@Override
+	public int selectCountEnsureCollegeNum(String localProvince, int ranking, int limitNum,
+			int science) {
+		int num=admissionScoreMapper.selectCountEnsureCollegeNum(localProvince, ranking, limitNum, science);
+		return num;
+	}
+
+	@Override
+	public int selectCountStablityCollegeNum(String localProvince, int ranking, int limitNum,
+			int science) {
+		int num=admissionScoreMapper.selectCountStablityCollegeNum(localProvince, ranking, limitNum, science);
+		return num;
+	}
+
+	@Override
+	public int selectCountSprintCollegeNum(String localProvince, int ranking, int limitNum,
+			int science) {
+		int num=admissionScoreMapper.selectCountSprintCollegeNum(localProvince, ranking, limitNum, science);
+		return num;
 	}
 	
 	

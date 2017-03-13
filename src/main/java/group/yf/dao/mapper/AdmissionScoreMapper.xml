@@ -3,28 +3,44 @@
 <mapper namespace="group.yf.dao.AdmissionScoreMapper">
 	
 	<select id="selectEnsureCollege" resultType="group.yf.pojo.College">
-		SELECT c.* FROM admissionScore s,college c
-		WHERE c.id=s.collegeId AND s.ensureHigh <![CDATA[<=]]> #{ranking} AND s.ensureLow <![CDATA[>=]]> #{ranking}
-		AND c.province=#{localProvince} AND s.province=#{targetProvince} AND s.science=#{science}
-		ORDER BY s.ensureLow-#{ranking} DESC
+		SELECT c.* FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.ensureHigh <![CDATA[<=]]> #{ranking} AND a.ensureLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+		ORDER BY a.ensureLow-#{ranking} DESC
 		LIMIT #{limitNum}
 	</select>
 	
 	<select id="selectStablityCollege" resultType="group.yf.pojo.College">
-		SELECT c.* FROM admissionScore s,college c
-		WHERE c.id=s.collegeId AND s.stablityHigh <![CDATA[<=]]> #{ranking} AND s.stablityLow <![CDATA[>=]]> #{ranking}
-		AND c.province=#{localProvince} AND s.province=#{targetProvince} AND s.science=#{science}
-		ORDER BY s.stablityHigh DESC
+		SELECT c.* FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.stablityHigh <![CDATA[<=]]> #{ranking} AND a.stablityLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+		ORDER BY a.stablityHigh DESC
 		LIMIT #{limitNum}
 	</select>
 	
 	<select id="selectSprintCollege" resultType="group.yf.pojo.College">
-		SELECT c.* FROM admissionScore s,college c
-		WHERE c.id=s.collegeId AND s.sprintHigh <![CDATA[<=]]> #{ranking} AND s.sprintLow <![CDATA[>=]]> #{ranking}
-		AND c.province=#{localProvince} AND s.province=#{targetProvince} AND s.science=#{science}
-		ORDER BY #{ranking}-s.sprintHigh
+		SELECT c.* FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.sprintHigh <![CDATA[<=]]> #{ranking} AND a.sprintLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+		ORDER BY #{ranking}-a.sprintHigh
 		LIMIT #{limitNum}
 	</select>
 	
-
+	<select id="selectCountEnsureCollegeNum" resultType="Integer">
+		SELECT COUNT(c.id) FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.ensureHigh <![CDATA[<=]]> #{ranking} AND a.ensureLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+	</select>
+	
+	<select id="selectCountStablityCollegeNum" resultType="Integer">
+		SELECT COUNT(c.id) FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.stablityHigh <![CDATA[<=]]> #{ranking} AND a.stablityLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+	</select>
+	
+	<select id="selectCountSprintCollegeNum" resultType="Integer">
+		SELECT COUNT(c.id) FROM admissionScore a,college c
+		WHERE c.id=a.collegeId AND a.sprintHigh <![CDATA[<=]]> #{ranking} AND a.sprintLow <![CDATA[>=]]> #{ranking}
+		AND c.province=#{localProvince} AND a.science=#{science}
+	</select>
 </mapper>

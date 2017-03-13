@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import group.yf.util.EncryptionUtil;
-
-
-
-
+import group.yf.util.UrlConnUtils;
 
 /**
  * 建立微信连接类
@@ -82,5 +78,19 @@ public class WechatConnectAction {
 		log.info("获取到微信端消息推送");
 		return "";
 	}
-
+	
+	
+	public static void main(String[] args){
+		
+		 String url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=eVHF39sCbEtdgULB-cEY7TMcUONlHiCgged9yKoQbPSpm_KSbad8uGug2X7KJZMpVWwC8kBzt8suGwYl3VlCjsB2s_nrVfL2CFrZG6cM_FwBTWfAJARJM";
+		
+		String menu=" {\"button\":[{\"type\":\"view\", \"name\":\"志愿查询\",\"url\":\"http://5f2vtw.natappfree.cc/volunteer\" },"
+			+"{\"type\":\"view\", \"name\":\"课堂\",\"url\":\"http://www.baidu.com\" },"
+             +"{\"type\":\"view\", \"name\":\"其他\",\"url\":\"http://www.qq.com\" }]}";
+		
+		String result=UrlConnUtils.getConnStrForPOST(url, "utf-8", menu);
+		System.out.println("result>>"+result);
+		
+	}
+	
 }
