@@ -1,4 +1,4 @@
-package group.yf.pojo;
+package group.yf.po;
 
 import java.io.Serializable;
 
