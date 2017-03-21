@@ -2,7 +2,7 @@ package group.yf.dao;
 
 import org.apache.ibatis.annotations.Param;
 
-import group.yf.pojo.ScoreSegment;
+import group.yf.po.ScoreSegment;
 
 /**
  * @author Yang Fei

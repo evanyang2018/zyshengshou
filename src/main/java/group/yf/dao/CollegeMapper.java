@@ -1,6 +1,6 @@
 package group.yf.dao;
 
-import group.yf.pojo.College;
+import group.yf.po.College;
 
 /**
  * @author Yang Fei

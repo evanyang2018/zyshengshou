@@ -27,10 +27,10 @@
 	<input type="button" id="select" value="查询"/>	
 <script type="text/javascript">
 	
-	var ranking="";
+	$("#select").on("click",function(){
 	
-	$("#score").on("blur",function(){
-		alert("123");
+		var ranking="";
+		
 		var requestUrl="ranking/"+$("#province").val()+"/"+$("#science").val()+"/"+$("#score").val();
 		$.ajax({
 		   type: "GET",
@@ -38,22 +38,14 @@
 		   success: function(msg){
 		     if(msg.ret==200){
 		     	ranking=msg.ranking;
+		     	window.location.href="volunteerResultPage/"+$('#province').val()+"/"+$('#science').val()+"/"+ranking;
 		     }else{
 		     	alert(msg.info);
 		     	$("#score").css("background","red");
-		     	ranking="";
+		     	return ;
 		     }
 		   }
 		});
-	
-	});
-
-	$("#select").on("click",function(){
-		if(ranking!=""){
-			window.location.href="volunteerResultPage/"+$('#province').val()+"/"+$('#science').val()+"/"+ranking;
-		}else{
-			alert("请确认您输入的分数！");
-		}
 	});
 </script>
 </body>

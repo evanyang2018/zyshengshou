@@ -2,7 +2,7 @@ package group.yf.service;
 
 import java.util.List;
 
-import group.yf.pojo.College;
+import group.yf.po.College;
 
 
 public 	interface AdmissionScoreService {

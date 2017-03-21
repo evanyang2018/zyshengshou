@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import group.yf.dao.AdmissionScoreMapper;
-import group.yf.pojo.College;
+import group.yf.po.College;
 import group.yf.service.AdmissionScoreService;
 
 @Controller

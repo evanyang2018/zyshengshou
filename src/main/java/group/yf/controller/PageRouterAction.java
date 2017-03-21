@@ -2,6 +2,7 @@ package group.yf.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,17 +23,6 @@ public class PageRouterAction {
 	public ModelAndView volunteer(){
 		log.info("Page>>>volunteer");
 		ModelAndView mav=new ModelAndView("volunteer");
-		return mav;
-	}
-	
-	
-	/**
-	 * 进入志愿查询结果页面
-	 */
-	@RequestMapping("volunteerResultPage")
-	public ModelAndView volunteerResult(){
-		log.info("Page>>>volunteerResult");
-		ModelAndView mav=new ModelAndView("volunteerResult");
 		return mav;
 	}
 	

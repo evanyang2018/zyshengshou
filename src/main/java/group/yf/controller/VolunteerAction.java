@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
 
-import group.yf.pojo.College;
+import group.yf.po.College;
 import group.yf.resp.BaseResp;
 import group.yf.service.AdmissionScoreService;
 import group.yf.service.ScoreSegmentService;
@@ -39,13 +39,9 @@ public class VolunteerAction {
 	private Integer collegeNum; 
 	@Value("#{pageConfig.year}")
 	private Integer year;
+	
 	/**
 	 * 获取改分数的 排名
-	 * @param req
-	 * @param province
-	 * @param science
-	 * @param score
-	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value="ranking/{province}/{science}/{score}",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
@@ -54,7 +50,7 @@ public class VolunteerAction {
 			@PathVariable("science")Integer science,
 			@PathVariable("score")Integer score){
 		
-		
+		log.info("ranking>>>province>>"+province+">>>science>>"+science+">>>score>>"+score);
 		Integer ranking=scoreSegmentService.selectRanking(province, score, science,year);
 		JSONObject result=new JSONObject();
 		if(ranking==null){
@@ -68,15 +64,11 @@ public class VolunteerAction {
 		return result.toString();
 	}
 	
-	
-	
-	
-	
 	/**
 	 * 进入志愿查询结果页面
 	 */
 	@ResponseBody
-	@RequestMapping(value="volunteerResult/{province}/{science}/{ranking}",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
+	@RequestMapping(value="volunteerResultPage/{province}/{science}/{ranking}",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
 	public ModelAndView volunteerResult(HttpServletRequest req,
 			@PathVariable("province")String province,
 			@PathVariable("science")Integer science,
