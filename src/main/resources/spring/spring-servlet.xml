@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc
        			http://www.springframework.org/schema/mvc/spring-mvc.xsd
@@ -9,33 +8,44 @@
                 http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
                 http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context.xsd">
-                
+
 	<!-- spring 注解扫描 -->
-	<context:component-scan base-package="group.yf"/>
-	<!-- 开启SpringMVC注解驱动 如：@Controller @NumberFormatannotation @DateTimeFormat @Valid-->
+	<context:component-scan base-package="group.yf" />
+	<!-- 开启SpringMVC注解驱动 如：@Controller @NumberFormatannotation @DateTimeFormat @Valid -->
 	<mvc:annotation-driven />
 	<!--对静态资源文件的访问 -->
-   	<mvc:default-servlet-handler />
-   
-	<!-- start 使用注解 <context:component-scan base-package="group.yf"/> 时候 可以移除-->
+	<mvc:default-servlet-handler />
+
+	<!-- 拦截器-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="group.yf.interceptor.AccessLogInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+
+	<!-- start 使用注解 <context:component-scan base-package="group.yf"/> 时候 可以移除 -->
 	<!-- 开启Spring注解 如：@Required @Autowired @PostConstruct -->
-	<!-- <context:annotation-config />  -->
-	<!-- end  -->
-	
-	<!--视图解释器  Freemarker -->
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-		 <property name="cache" value="true" />  
-         <property name="prefix" value="" />  
-         <property name="suffix" value=".ftl" />  
-         <property name="contentType" value="text/html;charset=UTF-8"></property>  
-         <property name="requestContextAttribute" value="request" />  
-         <property name="exposeSpringMacroHelpers" value="true" />  
-         <property name="exposeRequestAttributes" value="true" />  
-         <property name="exposeSessionAttributes" value="true" />  
+	<!-- <context:annotation-config /> -->
+	<!-- end -->
+
+	<!--视图解释器 Freemarker -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".ftl" />
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<property name="requestContextAttribute" value="request" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
 	</bean>
 
 	<!-- 模板引擎 Freemarker 配置 -->
-	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="templateLoaderPath" value="/WEB-INF/view/" />
 		<property name="freemarkerSettings">
 			<props>
@@ -48,12 +58,13 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<!-- 文件上传配置 -->
-	<bean id="multipartresolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="209715200"/>	<!-- 200*1024*1024 -->
-		<property name="defaultEncoding" value="UTF-8"/>
-		<property name="resolveLazily" value="true"/> <!-- 懒加载  使用时再加载 -->
+	<bean id="multipartresolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="209715200" />	<!-- 200*1024*1024 -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="resolveLazily" value="true" /> <!-- 懒加载 使用时再加载 -->
 	</bean>
 
 </beans>

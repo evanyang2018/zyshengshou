@@ -25,19 +25,22 @@
 	</div>
 	<table>
 		<tr>
-			<th>保底</th>
-			<th>稳定</th>
 			<th>可冲刺</th>
+			<#list sprintCollegeList as college>
+			<td>${college.college}</td>
+			</#list>
 		</tr>
 		<tr>
-			<td>保底学校1</td>
-			<td>稳定学校1</td>
-			<td>可冲刺学校1</td>
+			<th>稳定</th>
+			<#list stablityCollegeList as college>
+			<td>${college.college}</td>
+			</#list>
 		</tr>
 		<tr>
-			<td>保底学校2</td>
-			<td>稳定学校2</td>
-			<td>可冲刺学校2</td>
+			<th>保底</th>
+			<#list ensureCollegeList as college>
+			<td>${college.college}</td>
+			</#list>
 		</tr>
 		
 	</table>
@@ -48,22 +51,22 @@
 				{
 				value: ${sprintCollegeNum},
 				color:"#F38630",
-				text: "可冲刺-${sprintCollegeNum}"
+				text: "可冲刺-${sprintCollegeNum}所"
 				},
 			</#if>
 			<#if stablityCollegeNum!=0>
 				{
 				value : ${stablityCollegeNum},
 				color : "#E0E4CC",
-				text: "稳定-${stablityCollegeNum}"
+				text: "稳定-${stablityCollegeNum}所"
 				},
-			</#if>
+			</#if> 
 			
 			<#if ensureCollegeNum!=0>
 				{
 				value : ${ensureCollegeNum},
 				color : "#69D2E7",
-				text: "保底-${ensureCollegeNum}"
+				text: "保底-${ensureCollegeNum}所"
 				}
 			</#if>
 		];
