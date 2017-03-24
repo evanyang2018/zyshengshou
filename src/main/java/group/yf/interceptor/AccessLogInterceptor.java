@@ -1,7 +1,6 @@
 package group.yf.interceptor;
 
 import java.net.URLDecoder;
-import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,6 @@ public class AccessLogInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		startTime= System.currentTimeMillis();
-		request.setCharacterEncoding("utf-8");
 	    log.info("url=" + URLDecoder.decode(request.getRequestURI(),"utf-8"));
 		return super.preHandle(request, response, handler);
 	}
