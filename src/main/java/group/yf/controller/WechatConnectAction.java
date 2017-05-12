@@ -82,9 +82,9 @@ public class WechatConnectAction {
 	
 	public static void main(String[] args){
 		
-		 String url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=eVHF39sCbEtdgULB-cEY7TMcUONlHiCgged9yKoQbPSpm_KSbad8uGug2X7KJZMpVWwC8kBzt8suGwYl3VlCjsB2s_nrVfL2CFrZG6cM_FwBTWfAJARJM";
+		 String url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=nk-jk5lE6ethHpN3aAtb4riWQdNHThQQlpOFmEfjeMC_YgctcLIkQHxWDbPEZ4fjxFA9MmDvnN55IrA0myplGrBvlO3fPHyxda5ez_FknAo2_euNFvjJj6HKeXu0kiLnHJLfAEAZBD";
 		
-		String menu=" {\"button\":[{\"type\":\"view\", \"name\":\"志愿查询\",\"url\":\"http://5f2vtw.natappfree.cc/volunteer\" },"
+		String menu=" {\"button\":[{\"type\":\"view\", \"name\":\"志愿查询\",\"url\":\"http://zyss.xiaoxiangguohe.com/volunteerPage\" },"
 			+"{\"type\":\"view\", \"name\":\"课堂\",\"url\":\"http://www.baidu.com\" },"
              +"{\"type\":\"view\", \"name\":\"其他\",\"url\":\"http://www.qq.com\" }]}";
 		

@@ -38,7 +38,7 @@ public class MailUtil {
 		// 2.2设置收件人
 		message.setRecipient(RecipientType.TO, new InternetAddress(toUser));
 		// 2.3设置主题
-		message.setSubject("官方正式");
+		message.setSubject("账号注册确认邮件");
 		// 2.4设置邮件的正文
 		message.setContent("<h1>激活邮件</h1><h3><a href='www.baidu.com'>www.baidu.com?code=" + code + "</h3>",
 				"text/html;charset=UTF-8");

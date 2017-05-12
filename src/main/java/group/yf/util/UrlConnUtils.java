@@ -28,8 +28,8 @@ public class UrlConnUtils {
 				URL url = new URL(urlPath);
 				urlconn = (HttpURLConnection)url.openConnection();
 				urlconn.setRequestMethod("GET");
-				urlconn.setConnectTimeout(1500);
-				urlconn.setReadTimeout(2500);
+				urlconn.setConnectTimeout(30000);
+				urlconn.setReadTimeout(50000);
 				urlconn.connect();
 				BufferedReader br = new BufferedReader(new InputStreamReader(urlconn.getInputStream(),"UTF-8"));
 				String line;
